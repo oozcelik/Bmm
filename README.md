@@ -33,3 +33,7 @@ scramv1 b -j8
 cd CmsswAnalysis/test/bmm4/jobs/v11
 
 cmsRun 'configuration file'
+
+
+--------------- runBmm -> reduced trees ---------------
+
