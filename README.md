@@ -86,7 +86,7 @@ cd  $BMMBASE/CmsswAnalysis/test/bmm4/jobs/v11
 
 //// TO BE CONFIRMED ////
 
-$BMMBASE/perl/run -t /afs/cern.ch/user/o/oozcelik/CMSSW_9_4_4/newNc.tar.gz -q all.q -m batch -c $BMMBASE/CmsswAnalysis/test/bmm4/prodNoComp.csh -r 'PFNS root://eoscms//eos/cms/ /store/user/oozcelik/' Run2017B_Rereco/bmm-rereco-RunNov2017-Charmonium_Run2017B_Rereco-v11-0000.py
+$BMMBASE/perl/run -t /afs/cern.ch/user/o/oozcelik/CMSSW_9_4_4/new.tar.gz -q all.q -m batch -c $BMMBASE/CmsswAnalysis/test/bmm4/prod.csh -r 'PFNS root://eoscms//eos/cms/ /store/user/oozcelik/' Run2017B_Rereco/bmm-rereco-RunNov2017-Charmonium_Run2017B_Rereco-v11-0000.py
 
 
 
