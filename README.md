@@ -80,7 +80,7 @@ cd $BMMBASE/..
 
 $BMMBASE/perl/mkTarFile new.tar.gz
 
-+ Submit jobs
++ Submit jobs TO MAKE TREES !
 
 cd  $BMMBASE/CmsswAnalysis/test/bmm4/jobs/v11
 
