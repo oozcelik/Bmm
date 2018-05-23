@@ -90,7 +90,13 @@ $BMMBASE/perl/run -t /afs/cern.ch/user/o/oozcelik/CMSSW_9_4_4/new.tar.gz -q all.
 
 ## Custom Tools to run tree reader (to be run over rootuples on EOS )##
 
+eos ls /DirectoryToTheNtuples/ > bd2mumu-acc
 
+$BMMBASE/perl/mkCheckedChain bd2mumu-acc
+
+mkdir jobs && cd jobs
+ 
+ 
 
 
 
