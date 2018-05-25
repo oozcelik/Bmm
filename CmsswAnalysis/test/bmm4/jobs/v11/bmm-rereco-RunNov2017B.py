@@ -29,12 +29,12 @@ process.GlobalTag.globaltag = "94X_dataRun2_ReReco_EOY17_v2"
 # ----------------------------------------------------------------------
 # POOLSOURCE
 process.source = cms.Source("PoolSource", fileNames = cms.untracked.vstring(
-"/store/data/Run2017B/Charmonium/AOD/12Sep2017-v1/310000/0C787ADF-A1AA-E711-84D8-0242AC110003.root"))
+"/store/data/Run2017B/Charmonium/AOD/17Nov2017-v1/50000/00FBE817-CAEB-E711-8A0E-00259075D706.root"))
 
 
 
 # ----------------------------------------------------------------------
-rootFileName = "bmm-rereco-RunNov2017A.root"
+rootFileName = "bmm-rereco-RunNov2017B.root"
 
 process.tree = cms.EDAnalyzer(
     "HFTree",
