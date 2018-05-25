@@ -57,6 +57,7 @@ process.load("Bmm.CmsswAnalysis.HFPhysicsDeclared_cff")
 process.p = cms.Path(
     process.recoStuffSequence*
     process.bmmSequence*
+    process.bupsikpDump*
     process.psiDump*
     process.upsDump*
     process.dstarDump*
