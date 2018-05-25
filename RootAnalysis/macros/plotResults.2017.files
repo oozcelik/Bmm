@@ -1,3 +1,3 @@
-type=bmm,data              lumi=36.7          file=/afs/cern.ch/user/o/oozcelik/CMSSW_9_4_4/src/Bmm/CmsswAnalysis/test/bmm4/jobs/v11/bmm-rereco-RunNov2017B.root
-type=bupsik,data              lumi=36.7          file=/afs/cern.ch/user/o/oozcelik/CMSSW_9_4_4/src/Bmm/CmsswAnalysis/test/bmm4/jobs/v11/bmm-rereco-RunNov2017B.root
-type=bupsik,mc      bf=(6.12,0.19)e-5  eff=(5.65,0.01)e-4 file=/afs/cern.ch/user/o/oozcelik/CMSSW_9_4_4/src/Bmm/CmsswAnalysis/test/bmm4/jobs/v11/bmm-mc-Fall17_BuToJpsiK.root
+type=bmm,data              lumi=36.7          file=/afs/cern.ch/user/o/oozcelik/CMSSW_9_4_4/src/Bmm/RootAnalysis/macros/bmm-rereco-RunNov2017B.bmmReader.2017.root
+type=bupsik,data              lumi=36.7          file=/afs/cern.ch/user/o/oozcelik/CMSSW_9_4_4/src/Bmm/RootAnalysis/macros/bmm-rereco-RunNov2017B.bmmReader.2017.root
+type=bupsik,mc      bf=(6.12,0.19)e-5  eff=(5.65,0.01)e-4 file=/afs/cern.ch/user/o/oozcelik/CMSSW_9_4_4/src/Bmm/RootAnalysis/macros/bmm-mc-Fall17_BuToJpsiK.bmmReader.2017.root
