@@ -1,3 +1,11 @@
+For mounting tier-3 to the scratch area:
+
+cd /scratch
+mkdir oozcelik (if you don't have any yet)
+gfalFS store/ gsiftp://t3se01.psi.ch/pnfs/psi.ch/cms/trivcat/store/
+ls -lrt store/ (to make sure you mount it)
+gfalFS_umount /scratch/oozcelik/store/ (to unmount it)
+
 Bmm
 ===
 
