@@ -4,7 +4,7 @@ cd /scratch
 
 mkdir oozcelik (if you don't have any yet)
 
-gfalFS store/ gsiftp://t3se01.psi.ch/pnfs/psi.ch/cms/trivcat/store/
+gfalFS -s store/ srm://t3se01.psi.ch/pnfs/psi.ch/cms/trivcat/store/
 
 ls -lrt store/ (to make sure you mount it)
 
