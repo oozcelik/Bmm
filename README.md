@@ -55,58 +55,38 @@ cmsRun 'configuration file'
 
 To make and run the treeReaders, do
 
-cd $BMMBASE/RootAnalysis/common
+# Production with custom tools 
+
+
+## To run single jobs :
 
 data2017: bin/runBmm -y 2017 -C cuts/bmmReader.2017 -f /afs/cern.ch/user/o/oozcelik/CMSSW_9_4_4/src/Bmm/CmsswAnalysis/test/bmm4/jobs/v11/bmm-rereco-RunNov2017A.root
 
 ---------------------------------------------------------------------------
 
-ONE CAN FILL THE TREES USING CRAB3 BUT CANNOT READ THEM. ONE SHOULD USE BATCH FOR READING THE TREES!!
+MC2017: bin/runBmm -y 2017 -m 1 -C cuts/bmmReader.mix-Bu2JpsiK -f  root://t3dcachedb.psi.ch:1094/pnfs/psi.ch/cms/trivcat//store/user/oozcelik/BuToJpsiK_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BMM5_BuToJpsiK_MC_13Tev/180814_124253/0000/Bu2JpsiKstar_MC2017_654.root
+
+## To run batch jobs :
+
+—runBmm—
+
+$BMMBASE/perl/srmFind -c -p MC2017 /scratch/oozcelik/store/user/oozcelik/BuToJpsiK_BMuonFilter_SoftQCDnonD_TuneCP5_13TeV-pythia8-evtgen/crab_BMM5_BuToJpsiK_PU2017_13TeV/180920_102113/0000/ | sort > b2mm
+
+$BMMBASE/perl/mkCheckedChain b2mm
+
+$BMMBASE/perl/splitCheckedChain -n 200000 cb2mm
+
+$BMMBASE/perl/run -m batch -c $BMMBASE/RootAnalysis/macros/runBmmNoComp.csh -t /mnt/t3nfs01/data01/shome/oozcelik/bmm/CMSSW_9_4_6_patch1/runBmm.tar.gz -q short.q -x 'bin/runBmm -y 2017 -m 1 -C cuts/bmmReader.mix-Bu2JpsiK' -r 'PFNS srm://t3se01.psi.ch:8443/srm/managerv2\?SFN=/pnfs/psi.ch/cms/trivcat%STORAGE1 /store/user/$USER/bmm5/runBmm/Bu2JpsiK_PU2017%SITE T3_CH_PSI' cb2mm*
 
 
-# Production with custom tools 
+—merge files—
 
-Here I will only give the instructions to read the 'private' files which means the roottuples that includes TREES.
+$BMMBASE/perl/srmHadd -x "$PSI"/store/user/oozcelik/bmm5/runBmm/Charmonium_2017 -p cb2mm -o output.root
 
-+ Create the catalogs for the rootuples - create a file including their directories. 
+—runPlot—
 
-cd CmsswAnalysis/test/bmm4/catalogs/
+bin/runPlot -y 2017 -d /mnt/t3nfs01/data01/shome/oozcelik/bmm/CMSSW_9_4_6_patch1/src/Bmm/RootAnalysis/macros -s 2017 -c cuts/baseCuts.2017.cuts -f plotResults.2017.files -p overlays -m 2017
 
-mkdir Run2017__Charmonium && cd Run2017__Charmonium
-
-eos ls oozcelik/Charmonium/crab_BMM5_crabtest_Charmonium_Run2017B_Rereco/180519_095252/0000/ > Charmonium_Run2017B_Rereco 
-
-+ Create the python files for each datasets
-
-cd  $BMMBASE/CmsswAnalysis/test/bmm4/jobs/v11
-
-mkdir Run2017B_Rereco & cd Run2017B_Rereco
-
-$BMMBASE/perl/mkPyFiles -t ../bmm-rereco-RunNov2017-XXXX.py -f ../../../catalogs/Run2017__Charmonium/Charmonium_Run2017B_Rereco -s v11 -n 2 -l
-
-++ you should add this into runAll.jobs
-
-+ Create tar file (with compilation in the batch job)
-
-cd $BMMBASE/..
-
-$BMMBASE/perl/mkTarFile new.tar.gz
-
-+ Submit jobs TO MAKE TREES !
-
-cd  $BMMBASE/CmsswAnalysis/test/bmm4/jobs/v11
-
-//// TO BE CONFIRMED ////
-
-$BMMBASE/perl/run -t /afs/cern.ch/user/o/oozcelik/CMSSW_9_4_4/new.tar.gz -q all.q -m batch -c $BMMBASE/CmsswAnalysis/test/bmm4/prod.csh -r 'PFNS root://eoscms//eos/cms/ /store/user/oozcelik/' Run2017B_Rereco/bmm-rereco-RunNov2017-Charmonium_Run2017B_Rereco-v11-0000.py
-
-## Custom Tools to run tree reader (to be run over rootuples on EOS )##
-
-eos ls /DirectoryToTheNtuples/ > bd2mumu-acc
-
-$BMMBASE/perl/mkCheckedChain bd2mumu-acc
-
-mkdir jobs && cd jobs
  
  
 
