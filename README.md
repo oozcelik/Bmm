@@ -78,6 +78,8 @@ $BMMBASE/perl/splitCheckedChain -n 200000 cb2mm
 
 $BMMBASE/perl/run -m batch -c $BMMBASE/RootAnalysis/macros/runBmmNoComp.csh -t /mnt/t3nfs01/data01/shome/oozcelik/bmm/CMSSW_9_4_6_patch1/runBmm.tar.gz -q short.q -x 'bin/runBmm -y 2017 -m 1 -C cuts/bmmReader.mix-Bu2JpsiK' -r 'PFNS srm://t3se01.psi.ch:8443/srm/managerv2\?SFN=/pnfs/psi.ch/cms/trivcat%STORAGE1 /store/user/$USER/bmm5/runBmm/Bu2JpsiK_PU2017%SITE T3_CH_PSI' cb2mm*
 
+In case the last command not work, try this:
+$BMMBASE/perl/run -m batch -c $BMMBASE/RootAnalysis/macros/runBmmNoComp.csh -t /mnt/t3nfs01/data01/shome/oozcelik/bmm/CMSSW_9_4_6_patch1/runBmm.tar.gz -q short.q -x 'bin/runBmm -y 2017 -m 1 -C cuts/bmmReader.mix-Bu2JpsiK' -r 'PFNS srm://t3se01.psi.ch/pnfs/psi.ch/cms/trivcat%STORAGE1 /store/user/$USER/bmm5/runBmm/Bs2JpsiPhi_PU2017%SITE T3_CH_PSI' cb2mm*
 
 —merge files—
 
